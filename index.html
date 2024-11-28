@@ -79,32 +79,16 @@
   </div>
   <div class="chat-icon"></div>
 
-  <script>
-  // Configura las opciones para el chat de Watson Assistant
+<script>
   window.watsonAssistantChatOptions = {
-    // ID de la integración del chat de Watson Assistant.
-    integrationID: "fa7cb014-8dc9-423f-ab99-49226835599c",
-    // Región donde está alojada la integración.
-    region: "au-syd",
-    // ID de la instancia del servicio de Watson Assistant.
-    serviceInstanceID: "292efa88-3f49-4b74-a98d-6d00402d2530",
-    // Función que se ejecuta cuando el chat se ha cargado.
-    onLoad: async (instance) => { 
-      // Renderiza la interfaz del chat.
-      await instance.render(); 
-    }
+    integrationID: "4e357ca3-5327-4c2c-bac7-0231d53824d1", // The ID of this integration.
+    region: "au-syd", // The region your integration is hosted in.
+    serviceInstanceID: "fcca0925-0ba1-450c-9ee0-4494b03db762", // The ID of your service instance.
+    onLoad: async (instance) => { await instance.render(); }
   };
-
-  // Establece un temporizador para ejecutar una función después de un retraso.
   setTimeout(function(){
-    // Crea un elemento de script.
-    const t = document.createElement('script');
-    // Establece la fuente del script para cargar el chat de Watson Assistant.
-    t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + 
-      // Utiliza la versión del cliente especificada en las opciones o la versión 'latest' (más reciente).
-      (window.watsonAssistantChatOptions.clientVersion || 'latest') + 
-      "/WatsonAssistantChatEntry.js";
-    // Agrega el elemento de script al encabezado del documento.
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
     document.head.appendChild(t);
   });
 </script>
