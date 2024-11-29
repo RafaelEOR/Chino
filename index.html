@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Manucho</title>
   <style>
     body {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       flex-direction: column;
-      background: linear-gradient(to bottom, #FFEB3B 70%, #000000 30%);
+      background: linear-gradient(to bottom, #FFEB3B 88%, black 12%); /* Adjusted yellow color */
       min-height: 100vh;
       margin: 0;
       padding: 0;
@@ -17,21 +17,23 @@
       font-family: 'Arial', sans-serif;
     }
 
-    h1 {
-      font-size: 2.5em;
-      color: black;
-      margin-top: 20px;
-      font-weight: bold;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    .imagen {
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      background-color: #000000;
+      padding: 10px 0;
     }
 
-    .welcome-message {
-      font-size: 1.5em;
-      color: black;
-      margin: 10px 10%;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-      font-weight: normal;
-    }
+   #imagen img {
+    max-width: 80%;
+    height: auto;
+    margin-left: -50px; /* Ajusta este valor según sea necesario */
+}
+
 
     #voz {
       background-image: url("imagenes/4.png");
@@ -45,37 +47,26 @@
       border: none;
       cursor: pointer;
       transition: all 0.3s ease-in-out;
-      margin-top: 20px;
+      margin-top: 1vh;
+      transform: scale(1.1);
     }
 
-    #voz:hover {
-      transform: scale(1.2);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+    h1 {
+      font-size: 2.5em;
+      color: black;
+      margin-top: 10px; /* Reduced margin-top to move the text up */
+      font-weight: bold;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     }
 
-    .imagen {
-      width: 100%;
-      text-align: center;
-      background-color: #000;
-      padding: 15px 0;
+    .welcome-message {
+      font-size: 1.8em;
+      color: black;
+      margin: 10px 10%; /* Reduced margin to move the text up */
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     }
 
-    .imagen img {
-      max-width: 60%;
-      height: auto;
-    }
-
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2em;
-      }
-      .welcome-message {
-        font-size: 1.2em;
-      }
-      #voz {
-        padding: 150px 100px;
-      }
-    }
   </style>
   <link rel="icon" href="https://rafaeleor.github.io/Manucho/imagenes/4.png" type="image/png">
 </head>
@@ -86,7 +77,8 @@
   <div class="imagen" id="imagen"> 
     <img src="imagenes/CONECTA.png" alt="Conectamos imagen">
   </div>
-  
+  <div class="chat-icon"></div>
+
 <script>
   window.watsonAssistantChatOptions = {
     integrationID: "4e357ca3-5327-4c2c-bac7-0231d53824d1", // The ID of this integration.
